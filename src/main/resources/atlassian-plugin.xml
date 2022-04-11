@@ -2,23 +2,25 @@
     <plugin-info>
         <description>${project.description}</description>
         <version>${project.version}</version>
-        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
         <param name="plugin-icon">images/pluginIcon.png</param>
         <param name="plugin-logo">images/pluginLogo.png</param>
     </plugin-info>
 
     <!-- add our i18n resource -->
     <resource type="i18n" name="i18n" location="sportmaster"/>
-    
     <!-- add our web resources -->
     <web-resource key="sportmaster-resources" name="sportmaster Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
-        
         <resource type="download" name="sportmaster.css" location="/css/sportmaster.css"/>
         <resource type="download" name="sportmaster.js" location="/js/sportmaster.js"/>
         <resource type="download" name="images/" location="/images"/>
 
         <context>sportmaster</context>
     </web-resource>
-    
+
+    <ao key="sportmaster-ao-module" name="Active Objects Module">
+        <entity>ru.webdl.jira.example.usermessage.dao.UserMessage</entity>
+    </ao>
+
 </atlassian-plugin>
