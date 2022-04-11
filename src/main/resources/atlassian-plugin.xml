@@ -23,4 +23,12 @@
         <entity>ru.webdl.jira.example.usermessage.dao.UserMessage</entity>
     </ao>
 
+    <servlet key="user-timesheet-servlet" name="User Timesheet Servlet" class="ru.webdl.jira.example.UserTimesheetServlet">
+        <url-pattern>/timesheet</url-pattern>
+    </servlet>
+
+    <web-item key="user-timesheet-web-item" name="User Timesheet Menu Web Item" section="system.user.options/personal" application="jira">
+        <link linkId="user_timesheet_link">/plugins/servlet/timesheet</link>
+        <label key="user.menu.web.item.title"/>
+    </web-item>
 </atlassian-plugin>

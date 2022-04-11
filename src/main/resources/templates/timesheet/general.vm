@@ -1,0 +1,11 @@
+<html>
+<head>
+    <title>$i18n.getText("user.timesheet.template.general.title")</title>
+    <meta name="decorator" content="atl.userprofile">
+    $webResourceManager.requireResource("com.atlassian.auiplugin:aui-form-validation")
+</head>
+<body>
+<h2>$i18n.getText("user.timesheet.template.general.hello"), ${user.getDisplayName()}!</h2>
+
+</body>
+</html>
