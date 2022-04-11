@@ -7,5 +7,33 @@
 <body>
 <h2>$i18n.getText("user.timesheet.template.general.hello"), ${user.getDisplayName()}!</h2>
 
+<div class="aui-group">
+    <div class="aui-item" style="width: 100%">
+        <h3>Ворклоги</h3>
+        <table class="aui">
+            <thead>
+            <tr>
+                <th>Issue Key</th>
+                <th>Time Spent</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            #foreach($w in $worklogs)
+                #set($issueKey = $w.getIssue().getKey())
+            <tr>
+                <td><a href="/browse/${issueKey}">${issueKey}</a></td>
+                <td>$w.getTimeSpent()</td>
+                <td>$w.getCreated()</td>
+            </tr>
+            #end
+            </tbody>
+        </table>
+    </div>
+    <div class="aui-item" style="width: 100%">
+        <h3>Сообщение из БД</h3>
+
+    </div>
+</div>
 </body>
 </html>
