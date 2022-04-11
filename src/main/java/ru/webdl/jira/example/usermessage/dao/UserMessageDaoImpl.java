@@ -3,12 +3,14 @@ package ru.webdl.jira.example.usermessage.dao;
 import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.activeobjects.tx.Transactional;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@Repository
 @Transactional
 public class UserMessageDaoImpl implements UserMessageDao {
     @ComponentImport
