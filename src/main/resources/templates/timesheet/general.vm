@@ -24,7 +24,7 @@
             <tr>
                 <td><a href="/browse/${issueKey}">${issueKey}</a></td>
                 <td>$w.getTimeSpent()</td>
-                <td>$w.getCreated()</td>
+                <td>$w.getStartDate()</td>
             </tr>
             #end
             </tbody>
@@ -32,7 +32,22 @@
     </div>
     <div class="aui-item" style="width: 100%">
         <h3>Сообщение из БД</h3>
-
+        <table class="aui">
+            <thead>
+            <tr>
+                <th>Message</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+                #foreach($m in $messages)
+                <tr>
+                    <td>$m.getMessage()</td>
+                    <td>$m.getCreated()</td>
+                </tr>
+                #end
+            </tbody>
+        </table>
     </div>
 </div>
 </body>

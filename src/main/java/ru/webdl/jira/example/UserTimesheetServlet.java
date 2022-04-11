@@ -53,7 +53,7 @@ public class UserTimesheetServlet extends HttpServlet {
 
         Map<String, Object> context = new HashMap<>();
         context.put("user", user);
-        context.put("userMessageManager", userMessageManager.getAll(user));
+        context.put("messages", userMessageManager.getAll(user));
         context.put("worklogs", getWorklogs(user));
 
         resp.setContentType("text/html;charset=utf-8");

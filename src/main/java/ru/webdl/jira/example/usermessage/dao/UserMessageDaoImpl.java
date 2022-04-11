@@ -33,10 +33,10 @@ public class UserMessageDaoImpl implements UserMessageDao {
     }
 
     @Override
-    public UserMessage create(String userKey, String text) {
+    public UserMessage create(String userKey, String message) {
         Map<String, Object> data = new HashMap<>();
         data.put("USER_KEY", userKey);
-        data.put("TEXT", text);
+        data.put("MESSAGE", message);
         data.put("CREATED", new Date());
         return ao.create(UserMessage.class, data);
     }
