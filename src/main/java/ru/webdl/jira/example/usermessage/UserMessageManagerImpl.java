@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import ru.webdl.jira.example.usermessage.dao.UserMessage;
 import ru.webdl.jira.example.usermessage.dao.UserMessageDao;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 @Service("userMessageManager")
@@ -18,6 +20,14 @@ public class UserMessageManagerImpl implements UserMessageManager {
     @Override
     public Optional<UserMessage> getById(int id) {
         return dao.getById(id);
+    }
+
+    @Override
+    public List<UserMessage> getAll(ApplicationUser user) {
+        if (user == null) {
+            throw new UserMessageException("Переданы не все обязательные аргументы для получения списка");
+        }
+        return Arrays.asList(dao.getAll(user.getKey()));
     }
 
     @Override

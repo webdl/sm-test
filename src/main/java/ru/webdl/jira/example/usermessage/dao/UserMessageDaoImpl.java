@@ -3,6 +3,7 @@ package ru.webdl.jira.example.usermessage.dao;
 import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.activeobjects.tx.Transactional;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
+import net.java.ao.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -23,6 +24,12 @@ public class UserMessageDaoImpl implements UserMessageDao {
     @Override
     public Optional<UserMessage> getById(int id) {
         return Optional.ofNullable(ao.get(UserMessage.class, id));
+    }
+
+    @Override
+    public UserMessage[] getAll(String userKey) {
+        Query query = Query.select().where("USER_KEY = ?", userKey);
+        return ao.find(UserMessage.class, query);
     }
 
     @Override
