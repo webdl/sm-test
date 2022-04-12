@@ -19,19 +19,31 @@
             </tr>
             </thead>
             <tbody>
-            #foreach($w in $worklogs)
-                #set($issueKey = $w.getIssue().getKey())
-            <tr>
-                <td><a href="/browse/${issueKey}">${issueKey}</a></td>
-                <td>$w.getTimeSpent()</td>
-                <td>$w.getStartDate()</td>
-            </tr>
-            #end
+                #foreach($w in $worklogs)
+                    #set($issueKey = $w.getIssue().getKey())
+                <tr>
+                    <td><a href="/browse/${issueKey}">${issueKey}</a></td>
+                    <td>$w.getTimeSpent()</td>
+                    <td>$w.getStartDate()</td>
+                </tr>
+                #end
             </tbody>
         </table>
     </div>
     <div class="aui-item" style="width: 100%">
         <h3>Сообщение из БД</h3>
+        <form class="aui top-label" method="post">
+            <div class="field-group">
+                <label for="message">Новое сообщение <span class="aui-icon icon-required">(required)</span></label>
+                <input class="text long-field" type="text"
+                       id="message" name="message" placeholder="Пожалуйста, только не пишите 'java'..."
+                       data-aui-validation-field required>
+                <div class="description">Введите сообщение для фана и сохранения</div>
+            </div>
+            <div class="buttons">
+                <input class="aui-button aui-button-primary submit" type="submit" value="Сохранить" id="save-button">
+            </div>
+        </form>
         <table class="aui">
             <thead>
             <tr>

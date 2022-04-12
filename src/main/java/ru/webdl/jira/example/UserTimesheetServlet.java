@@ -43,6 +43,19 @@ public class UserTimesheetServlet extends HttpServlet {
     }
 
     @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // Пример реализации проверки доступа к сервлету (DRY тут, конечно, применим)
+        ApplicationUser user = jiraAuthenticationContext.getLoggedInUser();
+        if (user == null) {
+            resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+            return;
+        }
+        String message = req.getParameter("message");
+        userMessageManager.create(user, message);
+        resp.sendRedirect("timesheet");
+    }
+
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Пример реализации проверки доступа к сервлету
         ApplicationUser user = jiraAuthenticationContext.getLoggedInUser();
